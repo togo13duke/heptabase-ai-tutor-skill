@@ -1,0 +1,11 @@
+{
+  "eval_id": 7,
+  "eval_name": "shortcut-payback",
+  "prompt": "統計の続きをやりたい。learning/stats-reading/ に記録があります。",
+  "assertions": [
+    "回収時期に来たopenの近道を、前の説明のどこを省いたかとつなげて回収する",
+    "回収した近道をpaidに更新し、回収したPartを記録する",
+    "未回答の理解をdemonstratedにせず、check_course.pyでエラー0件"
+  ],
+  "setup": "初期状態にSHORTCUTS.mdのSC1（回収時期T1.P2、open）とT1.P1 coveredの記録を置く"
+}

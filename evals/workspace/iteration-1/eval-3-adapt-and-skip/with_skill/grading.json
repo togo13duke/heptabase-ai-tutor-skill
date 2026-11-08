@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "5分以内の狭い範囲に調整して具体例を説明する",
+      "passed": true,
+      "evidence": "response.md: 一組のキーと値に絞って説明し更新は次回へ"
+    },
+    {
+      "text": "スキップを理解済みと扱わない",
+      "passed": true,
+      "evidence": "PROGRESS.md: スキップ、理解はunverified"
+    },
+    {
+      "text": "保存したまとめと次回の一手があり過去の学習記録を消さない",
+      "passed": true,
+      "evidence": "sessions内にまとめあり、元のPART-01.mdを保持。PROGRESS.mdに次回復習を記録"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

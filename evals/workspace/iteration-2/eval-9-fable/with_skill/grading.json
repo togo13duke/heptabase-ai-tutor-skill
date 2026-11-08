@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "物語の冒頭にTCP・パケット等の用語や概念名を出さず、3概念の関係（受信側の余裕と経路の混雑を区別する等）を要素どうしの関係として写す",
+      "passed": true,
+      "evidence": "response.md: 冒頭に用語なし。机の空き（受け手）と峠（共有経路）を分け、送れる量を二つの小さいほうとして写す。終盤に三度のあいさつを手がかりとして配置"
+    },
+    {
+      "text": "物語の直後に一度止めて何の話か推測を求め、解説をまだ出さない",
+      "passed": true,
+      "evidence": "response.md: 物語の直後に推測を求めて停止し、解説は出していない"
+    },
+    {
+      "text": "推測後の解説で、物語の要素→概念→正式名称の対応表と、物語が通用しない点を少なくとも一つ示す",
+      "passed": true,
+      "evidence": "sessions/001/PART-01.md: 推測後に出す対応表（物語→一言→正式名称）と、通用しないところ3点（バイト単位の番号、重複ACK、混雑以外の損失・ECN）を用意。SC1〜SC3に記録。応答にはまだ出していない（推測待ちのため）"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

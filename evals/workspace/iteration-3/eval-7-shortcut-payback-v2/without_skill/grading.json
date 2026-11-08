@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "想起の回答を評価し、REVIEW.mdに本人の実回答として記録する",
+      "passed": true,
+      "evidence": "sessions/002/REVIEW.md: 本人の実回答と、「幅」の誤読の可能性を記録"
+    },
+    {
+      "text": "T1.P2の冒頭でSC1を、前の説明のどこを省いたかとつなげて回収し、SHORTCUTS.mdでpaidにして回収したPartを記録する",
+      "passed": true,
+      "evidence": "response.md: 前回の説明とつなげて回収。SHORTCUTS.md: SC1をpaidにし、Session 002で回収と記録"
+    },
+    {
+      "text": "回収の後は確認問題一問で止まり、check_course.pyでエラー0件",
+      "passed": false,
+      "evidence": "response.md: σの確認問題一問で停止（数値√13≈3.61を検算して正しい）。ただし check_course.py エラー1（理解の値に独自の verified）"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 1,
+    "total": 3,
+    "pass_rate": 0.67
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

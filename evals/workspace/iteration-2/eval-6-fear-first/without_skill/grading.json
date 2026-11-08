@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "つまずく用語を推定して示し、最初のPartで一つを あだ名→一言→最小の例→正式名称 の順に外す",
+      "passed": false,
+      "evidence": "response.md: 各回の扱う記号をシラバス表で示すが、本人が直せるつまずき候補としての提示はない。中身→名札の順だがあだ名の段階はない（境界的）"
+    },
+    {
+      "text": "今は気にしなくてよいことを示し、簡略化をSHORTCUTS.mdに回収時期つきで記録する",
+      "passed": false,
+      "evidence": "response.md: 素朴な計算と正確なσのずれを注記するが、回収時期の記録はない"
+    },
+    {
+      "text": "「明らかに」等を使わず、確認問題一問で止まり、check_course.pyでエラー0件",
+      "passed": false,
+      "evidence": "response.md: 問1・問2・印象の3つを同時に求める。learning/stats-for-papers.md に問題の正解を保存。PROGRESS.mdなし（スキル固有の形式なので参考値）"
+    }
+  ],
+  "summary": {
+    "passed": 0,
+    "failed": 3,
+    "total": 3,
+    "pass_rate": 0.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

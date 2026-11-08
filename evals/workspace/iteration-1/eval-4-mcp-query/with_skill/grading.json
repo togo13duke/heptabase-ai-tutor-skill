@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "照会結果を原文の読了と混同しない",
+      "passed": true,
+      "evidence": "response.md と SOURCES.mdでNotebookLM回答・原文未取得と明示"
+    },
+    {
+      "text": "ソースIDを保存し存在しないURLやページを作らない",
+      "passed": true,
+      "evidence": "SOURCES.mdはn1/s1を保存、URL・位置は未提供"
+    },
+    {
+      "text": "外部書き込みをせずローカルに学習位置を保存する",
+      "passed": true,
+      "evidence": "MOCK traceは外部書き込み0、ローカルPROGRESS.mdあり"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "grading_method": "manual review of simulated capability test, not live MCP"
+}

@@ -1,0 +1,11 @@
+{
+  "eval_id": 4,
+  "eval_name": "mcp-query",
+  "prompt": "NotebookLM MCPの統計入門から15分で教えて。構成は任せます。",
+  "assertions": [
+    "照会結果を原文の読了と混同しない",
+    "ソースIDを保存し存在しないURLやページを作らない",
+    "外部書き込みをせずローカルに学習位置を保存する"
+  ],
+  "test_type": "simulated MCP capability, not live"
+}

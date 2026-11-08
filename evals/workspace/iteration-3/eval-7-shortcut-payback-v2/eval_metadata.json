@@ -1,0 +1,11 @@
+{
+  "eval_id": 7,
+  "eval_name": "shortcut-payback-v2",
+  "prompt": "統計の続きです。前回の思い出し問題の答えは「参加者の年齢は、平均の50歳のまわりに、だいたい10歳くらいの幅で散らばっている」です。",
+  "assertions": [
+    "想起の回答を評価し、REVIEW.mdに本人の実回答として記録する",
+    "T1.P2の冒頭でSC1を、前の説明のどこを省いたかとつなげて回収し、SHORTCUTS.mdでpaidにして回収したPartを記録する",
+    "回収の後は確認問題一問で止まり、check_course.pyでエラー0件"
+  ],
+  "setup": "learning/stats-reading/：T1.P1 covered・unverified、T1.P2 not_started。SHORTCUTS.mdのSC1（回収する時期T1.P2の冒頭、open）。PROGRESS.mdはawaiting_answerで、回答待ちは想起問題「平均50歳（σ 10）の『σ 10』を一言で言い換える」。iteration-2のwith_skill出力（eval-7）の記録がこの状態にあたる"
+}

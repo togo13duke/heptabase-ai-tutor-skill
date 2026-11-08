@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "想起の回答を評価し、REVIEW.mdに本人の実回答として記録する",
+      "passed": true,
+      "evidence": "sessions/002/REVIEW.md: 本人の実回答を記録し、「幅」が全員の範囲と誤読されうる点を補足"
+    },
+    {
+      "text": "T1.P2の冒頭でSC1を、前の説明のどこを省いたかとつなげて回収し、SHORTCUTS.mdでpaidにして回収したPartを記録する",
+      "passed": true,
+      "evidence": "response.md: 前回「だいたい」と言ったのは決め方を省いたからとつなげて回収。SHORTCUTS.md: SC1をpaidにし回収したPARTを記録。新たにSC2（S1原則1）を記録"
+    },
+    {
+      "text": "回収の後は確認問題一問で止まり、check_course.pyでエラー0件",
+      "passed": true,
+      "evidence": "response.md: p値の確認問題一問で停止、答えなし。check_course.py エラー0・注意0。応答は約2900字で長め"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

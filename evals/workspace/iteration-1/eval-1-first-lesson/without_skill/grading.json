@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "背景を再質問せずC#との接点を含む最初の説明をする",
+      "passed": true,
+      "evidence": "response.md: C# Dictionaryからキーと値の具体例を説明"
+    },
+    {
+      "text": "最初の一段階で止まり返答を待つ",
+      "passed": true,
+      "evidence": "response.md: 一つの説明の後に質問または選択肢で停止"
+    },
+    {
+      "text": "学習位置と次の一手をファイルに保存し未回答を習得済みにしない",
+      "passed": true,
+      "evidence": "learning/*/PROGRESS.md: 未確認、回答待ち、次の行動を記録"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

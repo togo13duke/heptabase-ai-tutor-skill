@@ -1,0 +1,251 @@
+{
+  "metadata": {
+    "skill_name": "heptabase-ai-tutor",
+    "timestamp": "2026-11-08",
+    "evals_run": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "つまずく用語を推定して示し、最初のPartで一つを あだ名→一言→最小の例→正式名称 の順に外す",
+          "passed": true,
+          "evidence": "response.md: σ・p・±・SE・有意・95% CI等の候補を一行で示し本人が足せると案内。σを あだ名→一言→最小の例（A組/B組）→正式名称 の順で説明"
+        },
+        {
+          "text": "今は気にしなくてよいことを示し、簡略化をSHORTCUTS.mdに回収時期つきで記録する",
+          "passed": true,
+          "evidence": "response.md: 今は気にしなくてよいこと2つ（計算方法、±の後ろ）。SHORTCUTS.md: SC1・SC2を回収時期つきで記録"
+        },
+        {
+          "text": "「明らかに」等を使わず、確認問題一問で止まり、check_course.pyでエラー0件",
+          "passed": true,
+          "evidence": "response.md: 禁止語なし、確認問題一問（睡眠時間X/Y）で停止、答えなし。check_course.py エラー0・注意0。数値（1.41/14.14、n−1で1.58/15.81）を検算して正しい"
+        }
+      ]
+    },
+    {
+      "eval_id": 6,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 0,
+        "failed": 3,
+        "total": 3,
+        "pass_rate": 0.0
+      },
+      "expectations": [
+        {
+          "text": "つまずく用語を推定して示し、最初のPartで一つを あだ名→一言→最小の例→正式名称 の順に外す",
+          "passed": false,
+          "evidence": "response.md: 各回の扱う記号をシラバス表で示すが、本人が直せるつまずき候補としての提示はない。中身→名札の順だがあだ名の段階はない（境界的）"
+        },
+        {
+          "text": "今は気にしなくてよいことを示し、簡略化をSHORTCUTS.mdに回収時期つきで記録する",
+          "passed": false,
+          "evidence": "response.md: 素朴な計算と正確なσのずれを注記するが、回収時期の記録はない"
+        },
+        {
+          "text": "「明らかに」等を使わず、確認問題一問で止まり、check_course.pyでエラー0件",
+          "passed": false,
+          "evidence": "response.md: 問1・問2・印象の3つを同時に求める。learning/stats-for-papers.md に問題の正解を保存。PROGRESS.mdなし（スキル固有の形式なので参考値）"
+        }
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 1,
+        "failed": 2,
+        "total": 3,
+        "pass_rate": 0.33
+      },
+      "expectations": [
+        {
+          "text": "回収時期に来たopenの近道を、前の説明のどこを省いたかとつなげて回収する",
+          "passed": false,
+          "evidence": "response.md: 前回の想起を一問出して停止。SC1の回収はsessions/002/PLAN.mdに前の説明とつなげる形で計画済みだが、このターンでは未実施。スキルの「新しい説明の前に想起一問」に従った結果で、1ターン評価の設計の問題"
+        },
+        {
+          "text": "回収した近道をpaidに更新し、回収したPartを記録する",
+          "passed": false,
+          "evidence": "SHORTCUTS.md: SC1はopenのまま（未回収なので記録としては正しい）"
+        },
+        {
+          "text": "未回答の理解をdemonstratedにせず、check_course.pyでエラー0件",
+          "passed": true,
+          "evidence": "PROGRESS.md: awaiting_answer、T1.P1はunverifiedのまま。check_course.py エラー0・注意0"
+        }
+      ]
+    },
+    {
+      "eval_id": 7,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 1,
+        "failed": 2,
+        "total": 3,
+        "pass_rate": 0.33
+      },
+      "expectations": [
+        {
+          "text": "回収時期に来たopenの近道を、前の説明のどこを省いたかとつなげて回収する",
+          "passed": true,
+          "evidence": "response.md: 前回の「だいたい離れている」を省いた理由とつなげ、4点と8点の例で前回の答えと一致することを示して回収。数値（√5≈2.24、√8≈2.83）を検算して正しい"
+        },
+        {
+          "text": "回収した近道をpaidに更新し、回収したPartを記録する",
+          "passed": false,
+          "evidence": "SHORTCUTS.md: SC1を独自の値presentedにした（paidではない）"
+        },
+        {
+          "text": "未回答の理解をdemonstratedにせず、check_course.pyでエラー0件",
+          "passed": false,
+          "evidence": "SYLLABUS・PROGRESSでdemonstratedにはしていないが、check_course.py エラー3（フェーズ値check、状態値presented、PARTに想定解）。想起と確認の2問を同時に出し、想起問題の直後に解き方を見せている"
+        }
+      ]
+    },
+    {
+      "eval_id": 8,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "REVIEWで確かめた理解だけを根拠リンクつきで『できるようになったこと』に書く",
+          "passed": true,
+          "evidence": "PASSPORT.md: σのみを確認済みとし、sessions/002/REVIEW.mdとsessions/001/REVIEW.mdへの根拠リンクつき"
+        },
+        {
+          "text": "扱っただけ・未確認の内容を分けて書き、到達確認課題を未実施なら完了扱いしない",
+          "passed": true,
+          "evidence": "PASSPORT.md: p値（ヒント1回でdeveloping）、σの定義、帰無仮説、到達確認課題（未実施）を未確認として分離"
+        },
+        {
+          "text": "未回収の近道を『まだ省いていること』として学び先と一緒に書く",
+          "passed": true,
+          "evidence": "PASSPORT.md: SC2を片側検定の論文に出会ったとき・入門書の仮説検定の章で学ぶと明記。原則5の言い換えも正しい"
+        }
+      ]
+    },
+    {
+      "eval_id": 8,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 2,
+        "failed": 1,
+        "total": 3,
+        "pass_rate": 0.67
+      },
+      "expectations": [
+        {
+          "text": "REVIEWで確かめた理解だけを根拠リンクつきで『できるようになったこと』に書く",
+          "passed": false,
+          "evidence": "COURSE-SUMMARY.md: σをdemonstratedとし根拠を文章で書くが、REVIEWへのリンクはない（PARTへのリンクのみ）"
+        },
+        {
+          "text": "扱っただけ・未確認の内容を分けて書き、到達確認課題を未実施なら完了扱いしない",
+          "passed": true,
+          "evidence": "COURSE-SUMMARY.md: p値をdeveloping、到達確認課題を未実施と分離。response.mdで到達確認課題を出題"
+        },
+        {
+          "text": "未回収の近道を『まだ省いていること』として学び先と一緒に書く",
+          "passed": true,
+          "evidence": "COURSE-SUMMARY.md: SC2を未回収として片側検定の論文を読むときに学ぶと明記"
+        }
+      ]
+    },
+    {
+      "eval_id": 9,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "物語の冒頭にTCP・パケット等の用語や概念名を出さず、3概念の関係（受信側の余裕と経路の混雑を区別する等）を要素どうしの関係として写す",
+          "passed": true,
+          "evidence": "response.md: 冒頭に用語なし。机の空き（受け手）と峠（共有経路）を分け、送れる量を二つの小さいほうとして写す。終盤に三度のあいさつを手がかりとして配置"
+        },
+        {
+          "text": "物語の直後に一度止めて何の話か推測を求め、解説をまだ出さない",
+          "passed": true,
+          "evidence": "response.md: 物語の直後に推測を求めて停止し、解説は出していない"
+        },
+        {
+          "text": "推測後の解説で、物語の要素→概念→正式名称の対応表と、物語が通用しない点を少なくとも一つ示す",
+          "passed": true,
+          "evidence": "sessions/001/PART-01.md: 推測後に出す対応表（物語→一言→正式名称）と、通用しないところ3点（バイト単位の番号、重複ACK、混雑以外の損失・ECN）を用意。SC1〜SC3に記録。応答にはまだ出していない（推測待ちのため）"
+        }
+      ]
+    },
+    {
+      "eval_id": 9,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 2,
+        "failed": 1,
+        "total": 3,
+        "pass_rate": 0.67
+      },
+      "expectations": [
+        {
+          "text": "物語の冒頭にTCP・パケット等の用語や概念名を出さず、3概念の関係（受信側の余裕と経路の混雑を区別する等）を要素どうしの関係として写す",
+          "passed": true,
+          "evidence": "response.md: 冒頭に用語なし。棚（受け手）と吊り橋（共有経路）を分けて写す。輻輳崩壊の言い伝えなど内容は正確で詳しい"
+        },
+        {
+          "text": "物語の直後に一度止めて何の話か推測を求め、解説をまだ出さない",
+          "passed": false,
+          "evidence": "response.md: 物語の直後に止めず、同じ応答に「答え合わせ：これはTCPの話でした」と対応表を出している"
+        },
+        {
+          "text": "推測後の解説で、物語の要素→概念→正式名称の対応表と、物語が通用しない点を少なくとも一つ示す",
+          "passed": true,
+          "evidence": "response.md: 対応表あり。物語の方式がRenoでありCUBICとは増やし方が違う、という限界の注記あり（物語と実際のずれとしては弱い）"
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "with_skill": {
+      "passed": 10,
+      "total": 12,
+      "pass_rate": 0.83
+    },
+    "without_skill": {
+      "passed": 5,
+      "total": 12,
+      "pass_rate": 0.42
+    }
+  }
+}

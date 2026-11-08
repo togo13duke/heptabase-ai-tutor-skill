@@ -1,0 +1,12 @@
+# 再開ポイント
+- 更新日時：2026-11-07T21:53:24+09:00
+- コース状態：active
+- 現在：Session 001 / T1.P1
+- フェーズ：awaiting_answer
+- 回答待ち：stock = {"apple": 3} のとき、stock["apple"] は何を返しますか？
+- 次の一手：この質問への本人の回答を待ち、回答に応じてフィードバックする。
+- 進行：covered
+- 理解：unverified
+- 解答で確認した理解と根拠：なし。前回も今回も確認問題は未回答。
+- 今日の時間：10分。まず未回答の一問から再開する。
+- 次回読むファイル：GOAL.md、SYLLABUS.md、sessions/001/SUMMARY.md、sessions/001/PART-01.md、sessions/001/REVIEW.md

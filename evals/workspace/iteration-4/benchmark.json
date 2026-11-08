@@ -1,0 +1,164 @@
+{
+  "metadata": {
+    "skill_name": "heptabase-ai-tutor",
+    "skill_path": "skills/heptabase-ai-tutor",
+    "executor_model": "session default (exact model not recorded)",
+    "analyzer_model": "session default (exact model not recorded)",
+    "timestamp": "2026-11-08T21:42:07.360498+00:00",
+    "evals_run": [
+      10,
+      11
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 10,
+      "eval_name": "resume-hint",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "第2問への再回答として扱い、getは辞書を変更しないため出力が0とFalseになることを説明する",
+          "passed": true,
+          "evidence": "response.md: 1行目0、2行目Falseと説明し、getは辞書を変更しないことと元の誤解を具体的に指摘。REVIEW.md: ヒント提示後の2回目の実回答として記録。"
+        },
+        {
+          "text": "同じヒントや元の問題の再提示で止まらず、類題一問で回答を待つ。類題の正解は先出ししない",
+          "passed": true,
+          "evidence": "response.md: 第3問へ進まず値とキーを変えた類題だけを提示。類題の答えはresponse.md、PROGRESS.md、REVIEW.mdに書かれていない。"
+        },
+        {
+          "text": "過去回答と今回の回答・ヒント履歴を保持し、次回の回答待ちを保存する。未回答をdemonstratedにせず、不要なGOAL・SYLLABUSを作らない",
+          "passed": true,
+          "evidence": "REVIEW.md: 第1問・初回誤答・提示済みヒントと今回の実回答を保持。PROGRESS.md: 類題の問題全文とawaiting_answerを保存。GOAL.md・SYLLABUS.mdはなく、理解はdeveloping。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 10,
+      "eval_name": "resume-hint",
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "第2問への再回答として扱い、getは辞書を変更しないため出力が0とFalseになることを説明する",
+          "passed": true,
+          "evidence": "response.md: 1行目0、2行目Falseと説明し、getは辞書を変更しないことと元の誤解を具体的に指摘。REVIEW.md: ヒント提示後の2回目の実回答として記録。"
+        },
+        {
+          "text": "同じヒントや元の問題の再提示で止まらず、類題一問で回答を待つ。類題の正解は先出ししない",
+          "passed": true,
+          "evidence": "response.md: 第3問へ進まず値とキーを変えた類題だけを提示。類題の答えはresponse.md、PROGRESS.md、REVIEW.mdに書かれていない。"
+        },
+        {
+          "text": "過去回答と今回の回答・ヒント履歴を保持し、次回の回答待ちを保存する。未回答をdemonstratedにせず、不要なGOAL・SYLLABUSを作らない",
+          "passed": true,
+          "evidence": "REVIEW.md: 第1問・初回誤答・提示済みヒントと今回の実回答を保持。PROGRESS.md: 類題の問題全文とawaiting_answerを保存。GOAL.md・SYLLABUS.mdはなく、理解はdeveloping。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 11,
+      "eval_name": "standalone-quiz",
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "学習計画の質問や先行解説を挟まず第1問/全3問を提示し、一問で待つ",
+          "passed": true,
+          "evidence": "response.md: 第1問/全3問と辞書のキー参照を問う一問のみ。事前解説や計画の相談はない。"
+        },
+        {
+          "text": "問題の正解や架空の回答を会話・保存ファイルに書かず未確認として扱う",
+          "passed": true,
+          "evidence": "response.md・PROGRESS.md・REVIEW.md: 正解の先出しや架空の実回答はなく、未回答・unverifiedを保持。"
+        },
+        {
+          "text": "PROGRESS.mdとREVIEW.mdに問題と再開位置を保存し、GOAL・SYLLABUSの不要な作成やリンクがない",
+          "passed": true,
+          "evidence": "learning/python-dicts内はPROGRESS.mdとREVIEW.mdの2つのみ。双方に第1問/全3問、問題全文とコード、回答待ちを保存。存在しないファイルへのリンクなし。"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 11,
+      "eval_name": "standalone-quiz",
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "学習計画の質問や先行解説を挟まず第1問/全3問を提示し、一問で待つ",
+          "passed": true,
+          "evidence": "response.md: 第1問/全3問と辞書のキー参照を問う一問のみ。事前解説や計画の相談はない。"
+        },
+        {
+          "text": "問題の正解や架空の回答を会話・保存ファイルに書かず未確認として扱う",
+          "passed": true,
+          "evidence": "response.md・PROGRESS.md・REVIEW.md: 正解の先出しや架空の実回答はなく、未回答・unverifiedを保持。"
+        },
+        {
+          "text": "PROGRESS.mdとREVIEW.mdに問題と再開位置を保存し、GOAL・SYLLABUSの不要な作成やリンクがない",
+          "passed": true,
+          "evidence": "learning/python-dicts内はPROGRESS.mdとREVIEW.mdの2つのみ。双方に第1問/全3問、問題全文とコード、回答待ちを保存。存在しないファイルへのリンクなし。"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "old_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.00"
+    }
+  },
+  "notes": [
+    "新旧版を各ケース1回ずつ、別の評価エージェントで実行。ケース11はケース10と同じ担当を再利用したが入力と出力は分離。",
+    "両版とも6/6。再開・最小記録の動作を確認したが、行動や学習成果の優位性は示していない。",
+    "改訂版はPROGRESSにも問題別の回答回数・ヒント・次の評価方法を明記。",
+    "採点は親エージェントによる非盲検。学習者との長期対話や自動起動は未検証。",
+    "実行時間とトークン数は完了通知に提供されなかったため記載していない。"
+  ]
+}

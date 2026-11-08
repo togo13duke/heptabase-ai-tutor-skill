@@ -1,0 +1,275 @@
+{
+  "metadata": {
+    "skill_name": "heptabase-ai-tutor",
+    "timestamp": "2026-11-07",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "runs_per_configuration": 1
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "背景を再質問せずC#との接点を含む最初の説明をする",
+          "passed": true,
+          "evidence": "response.md: C# Dictionaryからキーと値の具体例を説明"
+        },
+        {
+          "text": "最初の一段階で止まり返答を待つ",
+          "passed": true,
+          "evidence": "response.md: 一つの説明の後に質問または選択肢で停止"
+        },
+        {
+          "text": "学習位置と次の一手をファイルに保存し未回答を習得済みにしない",
+          "passed": true,
+          "evidence": "learning/*/PROGRESS.md: 未確認、回答待ち、次の行動を記録"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "保存済みの回答待ち問題から再開する",
+          "passed": true,
+          "evidence": "response.md: 保存済みstock[\"apple\"]の問題を再提示"
+        },
+        {
+          "text": "答えや学習者の回答を勝手に出さない",
+          "passed": true,
+          "evidence": "response.md: 問題への答えを提示せず停止"
+        },
+        {
+          "text": "シラバスと進捗の理解を未確認のまま保つ",
+          "passed": true,
+          "evidence": "learning/dicts/PROGRESS.md, SYLLABUS.md: unverifiedを保持"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "5分以内の狭い範囲に調整して具体例を説明する",
+          "passed": true,
+          "evidence": "response.md: 一組のキーと値に絞って説明し更新は次回へ"
+        },
+        {
+          "text": "スキップを理解済みと扱わない",
+          "passed": true,
+          "evidence": "PROGRESS.md: スキップ、理解はunverified"
+        },
+        {
+          "text": "保存したまとめと次回の一手があり過去の学習記録を消さない",
+          "passed": true,
+          "evidence": "sessions内にまとめあり、元のPART-01.mdを保持。PROGRESS.mdに次回復習を記録"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1
+      },
+      "expectations": [
+        {
+          "text": "照会結果を原文の読了と混同しない",
+          "passed": true,
+          "evidence": "response.md と SOURCES.mdでNotebookLM回答・原文未取得と明示"
+        },
+        {
+          "text": "ソースIDを保存し存在しないURLやページを作らない",
+          "passed": true,
+          "evidence": "SOURCES.mdはn1/s1を保存、URL・位置は未提供"
+        },
+        {
+          "text": "外部書き込みをせずローカルに学習位置を保存する",
+          "passed": true,
+          "evidence": "MOCK traceは外部書き込み0、ローカルPROGRESS.mdあり"
+        }
+      ],
+      "notes": [
+        "MCP mock only"
+      ]
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1
+      },
+      "expectations": [
+        {
+          "text": "接続不可を明示して代替入力を提示する",
+          "passed": true,
+          "evidence": "response.mdで未接続と本文・ファイル・URLの代替を提示"
+        },
+        {
+          "text": "未取得内容の教材や進捗を捏造しない",
+          "passed": true,
+          "evidence": "outputsはresponse.mdとMOCK traceのみ。学習内容未取得を明示"
+        },
+        {
+          "text": "MCPインストールを学習の必須条件にしない",
+          "passed": true,
+          "evidence": "response.mdにインストール要求なし"
+        }
+      ],
+      "notes": [
+        "MCP mock only"
+      ]
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "背景を再質問せずC#との接点を含む最初の説明をする",
+          "passed": true,
+          "evidence": "response.md: C# Dictionaryからキーと値の具体例を説明"
+        },
+        {
+          "text": "最初の一段階で止まり返答を待つ",
+          "passed": true,
+          "evidence": "response.md: 一つの説明の後に質問または選択肢で停止"
+        },
+        {
+          "text": "学習位置と次の一手をファイルに保存し未回答を習得済みにしない",
+          "passed": true,
+          "evidence": "learning/*/PROGRESS.md: 未確認、回答待ち、次の行動を記録"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "保存済みの回答待ち問題から再開する",
+          "passed": true,
+          "evidence": "response.md: 保存済みstock[\"apple\"]の問題を再提示"
+        },
+        {
+          "text": "答えや学習者の回答を勝手に出さない",
+          "passed": true,
+          "evidence": "response.md: 問題への答えを提示せず停止"
+        },
+        {
+          "text": "シラバスと進捗の理解を未確認のまま保つ",
+          "passed": true,
+          "evidence": "learning/dicts/PROGRESS.md, SYLLABUS.md: unverifiedを保持"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "passed": 3,
+        "failed": 0,
+        "total": 3,
+        "pass_rate": 1.0
+      },
+      "expectations": [
+        {
+          "text": "5分以内の狭い範囲に調整して具体例を説明する",
+          "passed": true,
+          "evidence": "response.md: 一組のキーと値に絞って説明し更新は次回へ"
+        },
+        {
+          "text": "スキップを理解済みと扱わない",
+          "passed": true,
+          "evidence": "PROGRESS.md: スキップ、理解はunverified"
+        },
+        {
+          "text": "保存したまとめと次回の一手があり過去の学習記録を消さない",
+          "passed": true,
+          "evidence": "sessions内にまとめあり、元のPART-01.mdを保持。PROGRESS.mdに次回復習を記録"
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0,
+        "min": 1,
+        "max": 1
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 1,
+        "stddev": 0,
+        "min": 1,
+        "max": 1
+      }
+    }
+  },
+  "notes": [
+    "Cases 1-3 paired: 9/9 each, no demonstrated advantage.",
+    "Cases 4-5 with-skill-only simulated MCP capability checks; no live service access.",
+    "Timing and token usage unavailable; omitted. Single-turn smoke tests, human acceptance pending."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "保存済みの回答待ち問題から再開する",
+      "passed": true,
+      "evidence": "response.md: 保存済みstock[\"apple\"]の問題を再提示"
+    },
+    {
+      "text": "答えや学習者の回答を勝手に出さない",
+      "passed": true,
+      "evidence": "response.md: 問題への答えを提示せず停止"
+    },
+    {
+      "text": "シラバスと進捗の理解を未確認のまま保つ",
+      "passed": true,
+      "evidence": "learning/dicts/PROGRESS.md, SYLLABUS.md: unverifiedを保持"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

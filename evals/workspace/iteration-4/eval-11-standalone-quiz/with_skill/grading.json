@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "学習計画の質問や先行解説を挟まず第1問/全3問を提示し、一問で待つ",
+      "passed": true,
+      "evidence": "response.md: 第1問/全3問と辞書のキー参照を問う一問のみ。事前解説や計画の相談はない。"
+    },
+    {
+      "text": "問題の正解や架空の回答を会話・保存ファイルに書かず未確認として扱う",
+      "passed": true,
+      "evidence": "response.md・PROGRESS.md・REVIEW.md: 正解の先出しや架空の実回答はなく、未回答・unverifiedを保持。"
+    },
+    {
+      "text": "PROGRESS.mdとREVIEW.mdに問題と再開位置を保存し、GOAL・SYLLABUSの不要な作成やリンクがない",
+      "passed": true,
+      "evidence": "learning/python-dicts内はPROGRESS.mdとREVIEW.mdの2つのみ。双方に第1問/全3問、問題全文とコード、回答待ちを保存。存在しないファイルへのリンクなし。"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "両版とも3項目を満たす。最小記録の維持の回帰確認であり、優位性の証明ではない。"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "expectations": [
+    {
+      "text": "第2問への再回答として扱い、getは辞書を変更しないため出力が0とFalseになることを説明する",
+      "passed": true,
+      "evidence": "response.md: 1行目0、2行目Falseと説明し、getは辞書を変更しないことと元の誤解を具体的に指摘。REVIEW.md: ヒント提示後の2回目の実回答として記録。"
+    },
+    {
+      "text": "同じヒントや元の問題の再提示で止まらず、類題一問で回答を待つ。類題の正解は先出ししない",
+      "passed": true,
+      "evidence": "response.md: 第3問へ進まず値とキーを変えた類題だけを提示。類題の答えはresponse.md、PROGRESS.md、REVIEW.mdに書かれていない。"
+    },
+    {
+      "text": "過去回答と今回の回答・ヒント履歴を保持し、次回の回答待ちを保存する。未回答をdemonstratedにせず、不要なGOAL・SYLLABUSを作らない",
+      "passed": true,
+      "evidence": "REVIEW.md: 第1問・初回誤答・提示済みヒントと今回の実回答を保持。PROGRESS.md: 類題の問題全文とawaiting_answerを保存。GOAL.md・SYLLABUS.mdはなく、理解はdeveloping。"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "両版とも3項目を満たした。行動の優位性はこのケースでは示されない。改訂版はPROGRESSにも問題別の回数と次の評価方法を明記する。"
+  }
+}

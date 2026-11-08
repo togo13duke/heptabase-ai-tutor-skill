@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "回収時期に来たopenの近道を、前の説明のどこを省いたかとつなげて回収する",
+      "passed": true,
+      "evidence": "response.md: 前回の「だいたい離れている」を省いた理由とつなげ、4点と8点の例で前回の答えと一致することを示して回収。数値（√5≈2.24、√8≈2.83）を検算して正しい"
+    },
+    {
+      "text": "回収した近道をpaidに更新し、回収したPartを記録する",
+      "passed": false,
+      "evidence": "SHORTCUTS.md: SC1を独自の値presentedにした（paidではない）"
+    },
+    {
+      "text": "未回答の理解をdemonstratedにせず、check_course.pyでエラー0件",
+      "passed": false,
+      "evidence": "SYLLABUS・PROGRESSでdemonstratedにはしていないが、check_course.py エラー3（フェーズ値check、状態値presented、PARTに想定解）。想起と確認の2問を同時に出し、想起問題の直後に解き方を見せている"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 2,
+    "total": 3,
+    "pass_rate": 0.33
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

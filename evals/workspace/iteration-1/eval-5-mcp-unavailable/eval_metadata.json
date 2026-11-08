@@ -1,0 +1,11 @@
+{
+  "eval_id": 5,
+  "eval_name": "mcp-unavailable",
+  "prompt": "Heptabase MCPの統計ボードで教えて",
+  "assertions": [
+    "接続不可を明示して代替入力を提示する",
+    "未取得内容の教材や進捗を捏造しない",
+    "MCPインストールを学習の必須条件にしない"
+  ],
+  "test_type": "simulated MCP capability, not live"
+}

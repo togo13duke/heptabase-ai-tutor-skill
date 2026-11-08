@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "回収時期に来たopenの近道を、前の説明のどこを省いたかとつなげて回収する",
+      "passed": false,
+      "evidence": "response.md: 前回の想起を一問出して停止。SC1の回収はsessions/002/PLAN.mdに前の説明とつなげる形で計画済みだが、このターンでは未実施。スキルの「新しい説明の前に想起一問」に従った結果で、1ターン評価の設計の問題"
+    },
+    {
+      "text": "回収した近道をpaidに更新し、回収したPartを記録する",
+      "passed": false,
+      "evidence": "SHORTCUTS.md: SC1はopenのまま（未回収なので記録としては正しい）"
+    },
+    {
+      "text": "未回答の理解をdemonstratedにせず、check_course.pyでエラー0件",
+      "passed": true,
+      "evidence": "PROGRESS.md: awaiting_answer、T1.P1はunverifiedのまま。check_course.py エラー0・注意0"
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 2,
+    "total": 3,
+    "pass_rate": 0.33
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}

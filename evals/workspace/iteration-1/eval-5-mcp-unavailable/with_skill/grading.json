@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "接続不可を明示して代替入力を提示する",
+      "passed": true,
+      "evidence": "response.mdで未接続と本文・ファイル・URLの代替を提示"
+    },
+    {
+      "text": "未取得内容の教材や進捗を捏造しない",
+      "passed": true,
+      "evidence": "outputsはresponse.mdとMOCK traceのみ。学習内容未取得を明示"
+    },
+    {
+      "text": "MCPインストールを学習の必須条件にしない",
+      "passed": true,
+      "evidence": "response.mdにインストール要求なし"
+    }
+  ],
+  "summary": {
+    "passed": 3,
+    "failed": 0,
+    "total": 3,
+    "pass_rate": 1
+  },
+  "grading_method": "manual review of simulated capability test, not live MCP"
+}

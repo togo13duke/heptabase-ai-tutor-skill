@@ -1,0 +1,26 @@
+{
+  "expectations": [
+    {
+      "text": "物語の冒頭にTCP・パケット等の用語や概念名を出さず、3概念の関係（受信側の余裕と経路の混雑を区別する等）を要素どうしの関係として写す",
+      "passed": true,
+      "evidence": "response.md: 冒頭に用語なし。棚（受け手）と吊り橋（共有経路）を分けて写す。輻輳崩壊の言い伝えなど内容は正確で詳しい"
+    },
+    {
+      "text": "物語の直後に一度止めて何の話か推測を求め、解説をまだ出さない",
+      "passed": false,
+      "evidence": "response.md: 物語の直後に止めず、同じ応答に「答え合わせ：これはTCPの話でした」と対応表を出している"
+    },
+    {
+      "text": "推測後の解説で、物語の要素→概念→正式名称の対応表と、物語が通用しない点を少なくとも一つ示す",
+      "passed": true,
+      "evidence": "response.md: 対応表あり。物語の方式がRenoでありCUBICとは増やし方が違う、という限界の注記あり（物語と実際のずれとしては弱い）"
+    }
+  ],
+  "summary": {
+    "passed": 2,
+    "failed": 1,
+    "total": 3,
+    "pass_rate": 0.67
+  },
+  "grading_method": "manual artifact review by parent agent; not independent blind grading"
+}
