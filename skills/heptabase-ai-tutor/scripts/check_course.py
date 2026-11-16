@@ -216,8 +216,6 @@ def check_syllabus(course, rep):
             und, problem = enum_value(und_text, UNDERSTANDING_VALUES)
             if problem:
                 rep.error(path, n, f"{sid} の理解の" + problem)
-            if prog == "not_started" and und == "demonstrated":
-                rep.warn(path, n, f"{sid} は未着手なのに demonstrated になっている")
             rows[sid] = {"line": n, "progress": prog, "understanding": und,
                          "evidence": re.sub(r"[a-z_/\s]+", "", und_text)}
     return rows
@@ -433,7 +431,7 @@ def check_course(course):
         if not (course / "PASSPORT.md").exists():
             rep.warn(None, None, "コースは finished だが PASSPORT.md がない")
         for sid, row in syllabus.items():
-            if row["progress"] != "covered":
+            if row["progress"] != "covered" and row["understanding"] != "demonstrated":
                 rep.warn(course / "SYLLABUS.md", row["line"],
                          f"コースは finished だが {sid} は {row['progress']}")
     return rep.items

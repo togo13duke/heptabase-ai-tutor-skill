@@ -63,6 +63,30 @@ class MarkdownAndCLI(unittest.TestCase):
         items = check_course.check_course(self.course)
         self.assertTrue(any("invalid" in i[3] and i[0] == "エラー" for i in items), items)
 
+    def test_prior_knowledge_can_be_demonstrated_before_teaching(self):
+        path = self.course / "SYLLABUS.md"
+        path.write_text(path.read_text(encoding="utf-8").replace(
+            "covered", "not_started").replace("finished", "active"), encoding="utf-8")
+        progress = self.course / "PROGRESS.md"
+        progress.write_text(progress.read_text(encoding="utf-8").replace(
+            "finished", "active"), encoding="utf-8")
+        # 教材に未着手でも実回答の根拠は残る。進行と理解は独立。
+        self.assertEqual(check_course.check_course(self.course), [])
+
+    def test_finished_course_can_skip_only_demonstrated_material(self):
+        path = self.course / "SYLLABUS.md"
+        original = path.read_text(encoding="utf-8")
+        for understanding in ("demonstrated", "unverified"):
+            with self.subTest(understanding=understanding):
+                path.write_text(original.replace(
+                    "covered | demonstrated", f"not_started | {understanding}"), encoding="utf-8")
+                items = check_course.check_course(self.course)
+                if understanding == "demonstrated":
+                    self.assertEqual(items, [])
+                else:
+                    self.assertTrue(any("finished だが T1.P1 は not_started" in i[3]
+                                        for i in items), items)
+
     def test_multiline_question_with_code_and_choices(self):
         self.write_progress("\n  次の出力と理由は？\n\n"
                             "  ```python\n  print(2 + 3)\n  ```\n"
