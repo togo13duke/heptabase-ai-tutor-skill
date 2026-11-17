@@ -10,6 +10,7 @@
   - フェーズが awaiting_answer なのに回答待ちの質問が書かれていない、などの食い違い
   - 相対リンク切れ、SOURCES.md にない資料ID、SHORTCUTS.md にない近道ID
   - 回収時期を過ぎた未回収の近道、根拠の見当たらない demonstrated
+  - 出題範囲との対応表で、対応も「対象外」もない出題項目、存在しない対応先
   - PART の確認問題の後に答えが書かれていないか
   - チューターが書いた教材に「明らかに」「自明」などを使っていないか
 
@@ -29,6 +30,7 @@ PHASES = ("planning", "teaching", "awaiting_answer", "review", "wrap_up")
 COURSE_STATES = ("draft", "active", "paused", "finished")
 SHORTCUT_STATES = ("open", "paid")
 CARD_TYPES = ("定義", "プロセス・手順", "よくある間違い")
+EXAM_DEPTHS = ("深く", "標準", "要点のみ", "対象外")
 
 # 学習者を怖がらせる言葉。引用符の中は、その言葉について話しているとみなして除外する。
 # 「明らかにする／なる」は「解明する」の意味なので対象外。
@@ -218,7 +220,39 @@ def check_syllabus(course, rep):
                 rep.error(path, n, f"{sid} の理解の" + problem)
             rows[sid] = {"line": n, "progress": prog, "understanding": und,
                          "evidence": re.sub(r"[a-z_/\s]+", "", und_text)}
+    check_exam_scope(path, lines, rows, rep)
     return rows
+
+
+def check_exam_scope(path, lines, rows, rep):
+    """出題範囲との対応表。すべての出題項目に対応か「対象外」があるか。"""
+    for header, body in tables(lines):
+        item_col = column(header, "出題項目")
+        map_col = column(header, "対応")
+        depth_col = column(header, "扱い")
+        if item_col is None or map_col is None:
+            continue
+        for n, cells in body:
+            item = cell(cells, item_col)
+            if not item:
+                continue
+            mapped = cell(cells, map_col)
+            depth = cell(cells, depth_col).strip("`")
+            ids = SYLLABUS_ID_RE.findall(mapped)
+            for sid in ids:
+                if sid not in rows and not any(k.startswith(sid + ".") for k in rows):
+                    rep.error(path, n, f"出題項目「{item}」の対応先 {sid} がシラバスの表にない")
+            map_excluded = "対象外" in mapped
+            depth_excluded = depth == "対象外"
+            if not ids and not map_excluded and not depth_excluded:
+                rep.warn(path, n, f"出題項目「{item}」に対応するTopic/Partも「対象外」もない")
+            if depth_col is not None and depth not in EXAM_DEPTHS:
+                rep.error(path, n, f"出題項目「{item}」の扱いが "
+                          + " / ".join(EXAM_DEPTHS) + " のどれでもない")
+            if ids and (map_excluded or depth_excluded):
+                rep.warn(path, n, f"出題項目「{item}」は対象外なのに対応先が書かれている")
+            elif depth_col is not None and map_excluded and depth in EXAM_DEPTHS and not depth_excluded:
+                rep.warn(path, n, f"出題項目「{item}」は対応先が対象外なのに扱いが「{depth}」になっている")
 
 
 def check_progress(course, rep, syllabus):

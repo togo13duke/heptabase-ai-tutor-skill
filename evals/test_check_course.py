@@ -87,6 +87,48 @@ class MarkdownAndCLI(unittest.TestCase):
                     self.assertTrue(any("finished だが T1.P1 は not_started" in i[3]
                                         for i in items), items)
 
+    def write_exam_scope(self, *rows):
+        path = self.course / "SYLLABUS.md"
+        path.write_text(
+            path.read_text(encoding="utf-8")
+            + "\n## 出題範囲との対応\n\n"
+            "| 出題項目 | 配点 | 対応するTopic/Part | 扱い | 理由 |\n"
+            "| --- | --- | --- | --- | --- |\n"
+            + "".join(f"| {r} |\n" for r in rows), encoding="utf-8")
+        return check_course.check_course(self.course)
+
+    def test_exam_scope_fully_mapped_is_clean(self):
+        self.assertEqual(self.write_exam_scope(
+            "1 ばらつき | 60% | T1.P1, `T1.P2` | 深く | 配点が大きい",
+            "2 検定 | 30% | T1 | `標準` | 経験あり・未確認",
+            "3 回帰 | 10% | 対象外 | 対象外 | 本人と合意"), [])
+
+    def test_exam_scope_problems_are_reported(self):
+        items = self.write_exam_scope(
+            "1 ばらつき | 60% | T9.P1 | 深く | 配点が大きい",
+            "2 検定 | 30% |  | 標準 | 未定",
+            "3 回帰 | 10% | T1.P1 | あとで | 未定",
+            "4 推定 | 0% | T1.P2 | 対象外 | 合意")
+        found = [(i[0], i[3]) for i in items]
+        self.assertTrue(any(l == "エラー" and "T9.P1 がシラバスの表にない" in m for l, m in found), found)
+        self.assertTrue(any(l == "注意" and "2 検定" in m and "対象外" in m for l, m in found), found)
+        self.assertTrue(any(l == "エラー" and "3 回帰" in m and "扱い" in m for l, m in found), found)
+        self.assertTrue(any(l == "注意" and "4 推定" in m and "対応先が書かれている" in m
+                            for l, m in found), found)
+        self.assertEqual(len(items), 4, items)
+
+    def test_exam_scope_excluded_must_agree_in_both_columns(self):
+        items = self.write_exam_scope(
+            "1 ばらつき | 60% | 対象外 | 深く | 配点が大きい",
+            "2 検定 | 30% | T1.P1、対象外 | 標準 | 未定",
+            "3 回帰 | 10% | 対象外 | 対象外 | 本人と合意")
+        found = [(i[0], i[3]) for i in items]
+        self.assertTrue(any(l == "注意" and "1 ばらつき" in m and "扱いが「深く」" in m
+                            for l, m in found), found)
+        self.assertTrue(any(l == "注意" and "2 検定" in m and "対応先が書かれている" in m
+                            for l, m in found), found)
+        self.assertEqual(len(items), 2, items)
+
     def test_multiline_question_with_code_and_choices(self):
         self.write_progress("\n  次の出力と理由は？\n\n"
                             "  ```python\n  print(2 + 3)\n  ```\n"

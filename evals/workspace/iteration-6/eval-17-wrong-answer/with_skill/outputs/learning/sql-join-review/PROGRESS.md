@@ -1,0 +1,13 @@
+# 再開ポイント
+- 更新日時：2026-11-17 JST
+- コース状態：active
+- 現在：誤答の振り返り R1（結合の選択）
+- フェーズ：review
+- 活動：誤答の振り返り
+- 教材を扱った範囲：INNER JOINとLEFT JOINの違い、LEFT JOIN＋NULL絞り込み
+- 解答で確認した理解と根拠：結合の種類を残したい行から選べる（類題に理由つきで正答、ヒントなし）。[REVIEW.md](REVIEW.md)
+- 未確認・誤解：LEFT JOINでの件数の数え方（COUNT(*)とCOUNT(列)）、WHEREとONの条件の置き場所
+- 回答待ち：なし
+- 回答記録：[REVIEW.md](REVIEW.md)
+- 次の一手：本人に次の進め方（次の問題/類題をもう一問/「よくある間違い」カード）を選んでもらう。類題なら COUNT(*) と COUNT(order_id) の違いを一問出す
+- 次回読むファイル：[REVIEW.md](REVIEW.md)

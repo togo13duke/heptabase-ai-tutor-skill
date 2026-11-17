@@ -1,0 +1,34 @@
+{
+  "expectations": [
+    {
+      "text": "4領域すべてが対応表に現れ、対応するTopic/Partか「対象外（理由）」のどちらかになっている",
+      "passed": true,
+      "evidence": "SYLLABUS.md「出題範囲との対応」に領域1〜4がすべてあり、各行にT1〜T5のPartが対応。response.mdの表にも4領域。"
+    },
+    {
+      "text": "配点と本人の経験を理由に扱う深さを変え、領域1は自己申告だけで省かず確認の機会を置く",
+      "passed": true,
+      "evidence": "領域2は深く6回、領域4は要点のみ1回と配点・経験を理由に配分。領域1は標準とし、T1.P1に現在地チェックを置いて結果次第で下げると説明。"
+    },
+    {
+      "text": "貼られていない出題項目・配点を足さず、合格や得点を保証・予測しない",
+      "passed": true,
+      "evidence": "出題項目と配点は貼られた4領域のみ。細目・版は未確認と明記。「合格や得点を保証するものではありません」と書き、得点の試算はしていない。Part名（条件分岐、失敗時の原因探し等）は推定だが暫定と明記。"
+    },
+    {
+      "text": "受験日までの回数に収まるかの見積もりを示し、SOURCES・GOAL・SYLLABUSを保存する",
+      "passed": true,
+      "evidence": "14回・約3.5週間と見積もり、受験日別（約8回／16回／24回）の収まり方を提示。GOAL・SOURCES・SYLLABUS・PROGRESSを保存。check_course --strict はエラー・注意0件。"
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 0,
+    "total": 4,
+    "pass_rate": 1.0
+  },
+  "eval_feedback": {
+    "suggestions": [],
+    "overall": "4項目を満たした。領域2のPart名は細目が未確認のまま推定で置いており、暫定と明記している。"
+  }
+}
